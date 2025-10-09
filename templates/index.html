@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Legacy - Choose Your Dark Destiny</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    
+    <!-- Gradient Background -->
+    <div class="gradient-bg"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">CURSED LEGACY</div>
+        <div class="nav-links">
+            <a href="#stories">Stories</a>
+            <a href="#features">Features</a>
+            <a href="#play" class="nav-cta">Play Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="hero-tag">AI-POWERED INTERACTIVE RPG</span>
+            <h1 class="hero-title">
+                Your Choices<br/>
+                <span class="gradient-text">Shape Your Destiny</span>
+            </h1>
+            <p class="hero-description">
+                10 dark fantasy storylines inspired by anime classics. Every decision matters. 
+                AI-generated stories that adapt to YOUR choices. Hero or Villain? You decide.
+            </p>
+            <div class="hero-features">
+                <div class="feature-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span>10 Unique Paths</span>
+                </div>
+                <div class="feature-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>
+                    <span>Morality System</span>
+                </div>
+                <div class="feature-pill">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <span>AI-Generated Stories</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Paths Showcase -->
+    <section class="stories-showcase" id="stories">
+        <div class="showcase-container">
+            <h2 class="section-title">Choose Your Path</h2>
+            <p class="section-subtitle">Each path offers a unique dark fantasy experience with branching storylines</p>
+            
+            <div class="stories-grid-showcase">
+                <!-- Cursed King -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Cursed King')">
+                    <div class="showcase-icon">⚔️</div>
+                    <h3>Cursed King</h3>
+                    <p class="showcase-desc">Immense cursed power like Sukuna</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Ancient curse awakens within you. Villagers flee as your eyes glow crimson. The king's dark spirit whispers: 'Rule with me... or die resisting.' Your descent begins."
+                    </div>
+                    <div class="showcase-features">
+                        <span>🔥 Domain Expansion</span>
+                        <span>⚔️ Malevolent Shrine</span>
+                        <span>👑 King's Power</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Demon Blood -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Demon Blood')">
+                    <div class="showcase-icon">🌙</div>
+                    <h3>Demon Blood</h3>
+                    <p class="showcase-desc">Transform into demon form</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Demon blood courses through veins. Moonlight burns. Hunger overwhelms. First prey ahead. Demon slayers hunt you. Will you embrace monstrous power or fight for humanity?"
+                    </div>
+                    <div class="showcase-features">
+                        <span>🩸 Blood Demon Art</span>
+                        <span>🌙 Night Power</span>
+                        <span>⚗️ Regeneration</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Special Grade -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Special Grade')">
+                    <div class="showcase-icon">👁️</div>
+                    <h3>Special Grade</h3>
+                    <p class="showcase-desc">Master cursed techniques</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Cursed spirit energy surges. Six Eyes awaken. Infinity bends reality around you. Jujutsu sorcerers declare you Special Grade threat. Master techniques or be exorcised."
+                    </div>
+                    <div class="showcase-features">
+                        <span>👁️ Six Eyes</span>
+                        <span>♾️ Infinity</span>
+                        <span>⚡ Cursed Techniques</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Rogue Shinobi -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Rogue Shinobi')">
+                    <div class="showcase-icon">🌀</div>
+                    <h3>Rogue Shinobi</h3>
+                    <p class="showcase-desc">Master forbidden jutsu</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Banished from village. Forbidden jutsu learned. Tailed beast sealed within. Shinobi world hunts you. Will you destroy or protect? The path of vengeance begins."
+                    </div>
+                    <div class="showcase-features">
+                        <span>🌀 Forbidden Jutsu</span>
+                        <span>🦊 Tailed Beast</span>
+                        <span>⚡ Rasengan</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Vampire King -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Vampire King')">
+                    <div class="showcase-icon">🦇</div>
+                    <h3>Vampire King</h3>
+                    <p class="showcase-desc">Rule the night eternally</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Immortal blood flows. Sunlight is death. Blood magic awakens. Vampire hunters stalk you. Build dark empire or seek redemption? Eternity awaits your choice."
+                    </div>
+                    <div class="showcase-features">
+                        <span>🩸 Blood Magic</span>
+                        <span>☀️ Daywalker Quest</span>
+                        <span>🦇 Immortality</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- One-Eyed Ghoul -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'One-Eyed Ghoul')">
+                    <div class="showcase-icon">👁️‍🗨️</div>
+                    <h3>One-Eyed Ghoul</h3>
+                    <p class="showcase-desc">Awaken kagune power</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "One eye glows crimson. Kagune erupts. CCG investigators hunt. Half-human, half-ghoul. Kakuja transformation awaits. Which world will you protect?"
+                    </div>
+                    <div class="showcase-features">
+                        <span>🦑 Kagune</span>
+                        <span>💀 Kakuja Form</span>
+                        <span>👁️ One-Eyed Power</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Chainsaw Devil -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Chainsaw Devil')">
+                    <div class="showcase-icon">🔗</div>
+                    <h3>Chainsaw Devil</h3>
+                    <p class="showcase-desc">Unleash brutal violence</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Devil heart beats. Chainsaw roars. Devil hunters fear you. Blood and violence. Contracts signed in gore. Embrace chaos or become the hero? Pull the cord."
+                    </div>
+                    <div class="showcase-features">
+                        <span>🪚 Chainsaw</span>
+                        <span>💔 Devil Heart</span>
+                        <span>🔥 Pure Violence</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Hollow King -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Hollow King')">
+                    <div class="showcase-icon">😈</div>
+                    <h3>Hollow King</h3>
+                    <p class="showcase-desc">Evolve beyond limits</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Hollow mask forms. Cero charges. Soul reapers hunt. Arrancar transformation possible. Espada ranks await. Transcend death itself. Hueco Mundo calls."
+                    </div>
+                    <div class="showcase-features">
+                        <span>⚡ Cero Blast</span>
+                        <span>👹 Espada Rank</span>
+                        <span>🌙 Hollow Evolution</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Nen Master -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Nen Master')">
+                    <div class="showcase-icon">🎴</div>
+                    <h3>Nen Master</h3>
+                    <p class="showcase-desc">Master aura manipulation</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Nen awakens. Hatsu develops. Hunter license earned. Phantom Troupe notices. Restrictions amplify power. Post-mortem nen beckons. Your ability defines destiny."
+                    </div>
+                    <div class="showcase-features">
+                        <span>⚡ Hatsu Ability</span>
+                        <span>💀 Post-Mortem Nen</span>
+                        <span>🎴 Restrictions</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+
+                <!-- Black Swordsman -->
+                <div class="story-showcase-card" onclick="selectStoryPreview(this, 'Black Swordsman')">
+                    <div class="showcase-icon">⚔️</div>
+                    <h3>Black Swordsman</h3>
+                    <p class="showcase-desc">Survive against fate</p>
+                    <div class="showcase-story">
+                        <strong>Story Preview:</strong><br/>
+                        "Branded by sacrifice. Apostles hunt nightly. Dragonslayer forged. Beast of darkness roars within. Fate itself your enemy. Struggle against destiny begins."
+                    </div>
+                    <div class="showcase-features">
+                        <span>⚔️ Dragonslayer</span>
+                        <span>😈 Beast Within</span>
+                        <span>🔥 Brand of Sacrifice</span>
+                    </div>
+                    <button class="showcase-select">Select This Path</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Creation -->
+    <section class="setup-section" id="play">
+        <div class="setup-card">
+            <div class="card-header">
+                <h2>Create Your Character</h2>
+                <p>Your journey into darkness begins</p>
+            </div>
+
+            <!-- Character Name -->
+            <div class="input-wrapper">
+                <label>Character Name</label>
+                <input type="text" id="characterName" placeholder="Enter your name..." maxlength="20" class="modern-input">
+            </div>
+
+            <!-- Selected Path Display -->
+            <div class="input-wrapper">
+                <label>Selected Path</label>
+                <div class="selected-path-display" id="selectedPathDisplay">
+                    <p style="color: var(--text-secondary); text-align: center;">⬆️ Select a story path above</p>
+                </div>
+            </div>
+
+            <!-- Combat Class -->
+            <div class="input-wrapper">
+                <label>Combat Class</label>
+                <div class="class-grid">
+                    <div class="class-card" onclick="selectClass(this, 'warrior')">
+                        <div class="class-info">
+                            <div class="class-icon">⚔️</div>
+                            <div>
+                                <h4>Berserker</h4>
+                                <p>High physical damage</p>
+                            </div>
+                        </div>
+                        <div class="class-stats-mini">
+                            <div><span>STR</span><div class="mini-bar"><div style="width: 90%"></div></div></div>
+                            <div><span>INT</span><div class="mini-bar"><div style="width: 40%"></div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="class-card" onclick="selectClass(this, 'mage')">
+                        <div class="class-info">
+                            <div class="class-icon">🔮</div>
+                            <div>
+                                <h4>Cursed Caster</h4>
+                                <p>Master of techniques</p>
+                            </div>
+                        </div>
+                        <div class="class-stats-mini">
+                            <div><span>STR</span><div class="mini-bar"><div style="width: 40%"></div></div></div>
+                            <div><span>INT</span><div class="mini-bar"><div style="width: 95%"></div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="class-card" onclick="selectClass(this, 'rogue')">
+                        <div class="class-info">
+                            <div class="class-icon">🗡️</div>
+                            <div>
+                                <h4>Shadow Assassin</h4>
+                                <p>Speed and precision</p>
+                            </div>
+                        </div>
+                        <div class="class-stats-mini">
+                            <div><span>AGI</span><div class="mini-bar"><div style="width: 95%"></div></div></div>
+                            <div><span>LUCK</span><div class="mini-bar"><div style="width: 80%"></div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="class-card" onclick="selectClass(this, 'healer')">
+                        <div class="class-info">
+                            <div class="class-icon">💉</div>
+                            <div>
+                                <h4>Blood Priest</h4>
+                                <p>Support and control</p>
+                            </div>
+                        </div>
+                        <div class="class-stats-mini">
+                            <div><span>INT</span><div class="mini-bar"><div style="width: 70%"></div></div></div>
+                            <div><span>CHA</span><div class="mini-bar"><div style="width: 90%"></div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Setting -->
+            <div class="input-wrapper">
+                <label>Story Setting</label>
+                <input type="text" id="setting" placeholder="e.g., Tokyo, Ancient Japan, Modern City..." maxlength="30" class="modern-input">
+            </div>
+
+            <!-- Start Button -->
+            <button class="primary-btn" onclick="startGame()">
+                <span>Begin Your Journey</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <script>
+        let selectedGenre = null;
+        let selectedClass = null;
+
+        function selectStoryPreview(element, genre) {
+            // Remove previous selection
+            document.querySelectorAll('.story-showcase-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection
+            element.classList.add('selected');
+            selectedGenre = genre;
+            
+            // Update display
+            const display = document.getElementById('selectedPathDisplay');
+            display.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--bg-tertiary); border-radius: 12px; border: 2px solid var(--accent);">
+                    <div style="font-size: 2.5rem;">${element.querySelector('.showcase-icon').textContent}</div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">${genre}</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">${element.querySelector('.showcase-desc').textContent}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Smooth scroll to character creation
+            document.getElementById('play').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function selectClass(element, classType) {
+            document.querySelectorAll('.class-card').forEach(card => card.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedClass = classType;
+        }
+
+        function startGame() {
+            const characterName = document.getElementById('characterName').value.trim();
+            const setting = document.getElementById('setting').value.trim();
+
+            if (!characterName) {
+                alert('⚠️ Enter your character name!');
+                return;
+            }
+            if (!selectedGenre) {
+                alert('⚠️ Select a story path above!');
+                return;
+            }
+            if (!selectedClass) {
+                alert('⚠️ Select your combat class!');
+                return;
+            }
+            if (!setting) {
+                alert('⚠️ Enter a story setting!');
+                return;
+            }
+
+            // Save to session storage
+            sessionStorage.setItem('characterName', characterName);
+            sessionStorage.setItem('genre', selectedGenre);
+            sessionStorage.setItem('characterClass', selectedClass);
+            sessionStorage.setItem('setting', setting);
+
+            // Start game
+            fetch('/api/start-game', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ characterName, genre: selectedGenre, characterClass: selectedClass, setting })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    sessionStorage.setItem('gameSessionId', data.sessionId);
+                    sessionStorage.setItem('currentStory', JSON.stringify(data.story));
+                    sessionStorage.setItem('gameState', JSON.stringify(data.gameState));
+                    window.location.href = '/game';
+                }
+            })
+            .catch(error => {
+                alert('❌ Error starting game: ' + error);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursed Legacy - Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="game-page">
+    
+    <!-- Background -->
+    <div class="gradient-bg"></div>
+    <div class="noise-overlay"></div>
+    
+    <!-- Enhanced HUD -->
+    <div class="game-hud">
+        <div class="hud-section hud-left">
+            <div class="stat-display">
+                <span class="stat-label">Character</span>
+                <span class="stat-value" id="characterDisplay">Loading...</span>
+            </div>
+            <div class="health-display">
+                <div class="health-info">
+                    <span>❤️ Health</span>
+                    <span id="healthText">150/150</span>
+                </div>
+                <div class="health-bar-modern">
+                    <div class="health-fill-modern" id="healthFill" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hud-section hud-center">
+            <div class="stat-display">
+                <span class="stat-label">Turn</span>
+                <span class="stat-value" id="turnDisplay">1/30</span>
+            </div>
+            <div class="stat-display">
+                <span class="stat-label">Power Level</span>
+                <span class="stat-value power-level" id="powerLevelDisplay">Weak Human</span>
+            </div>
+        </div>
+        
+        <div class="hud-section hud-right">
+            <div class="stat-display">
+                <span class="stat-label">Kills</span>
+                <span class="stat-value" id="killCountDisplay">0</span>
+            </div>
+            <div class="stat-display">
+                <span class="stat-label">Morality</span>
+                <span class="stat-value" id="moralityDisplay">50</span>
+            </div>
+            <div class="stat-display">
+                <span class="stat-label">🏆 Achievements</span>
+                <span class="stat-value" id="achievementCount">0</span>
+            </div>
+            <button class="hud-btn back-btn" onclick="if(confirm('Leave game?')) window.location.href='/'">← Abandon</button>
+        </div>
+    </div>
+    
+    <!-- Side Panels -->
+    <div class="side-panel left-panel" id="statsPanel">
+        <div class="panel-header">
+            <h3>📊 Stats</h3>
+        </div>
+        <div class="stat-bars">
+            <div class="stat-row">
+                <div class="stat-name">
+                    <span>STR</span>
+                    <span class="stat-num" id="strengthVal">10</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar-fill" id="strengthBar" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-name">
+                    <span>INT</span>
+                    <span class="stat-num" id="intelligenceVal">10</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar-fill" id="intelligenceBar" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-name">
+                    <span>CHA</span>
+                    <span class="stat-num" id="charismaVal">10</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar-fill" id="charismaBar" style="width: 50%;"></div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-name">
+                    <span>LUCK</span>
+                    <span class="stat-num" id="luckVal">10</span>
+                </div>
+                <div class="stat-bar-container">
+                    <div class="stat-bar-fill" id="luckBar" style="width: 50%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="side-panel right-panel">
+        <div class="panel-header">
+            <h3>🎒 Inventory</h3>
+        </div>
+        <div class="inventory-list" id="inventoryItems">
+            <p class="empty-state">Empty inventory...</p>
+        </div>
+    </div>
+    
+    <!-- Story Area -->
+    <div class="story-area">
+        <div class="story-box">
+            <div class="story-content" id="storyText">
+                <p class="loading-text">Loading your story...</p>
+            </div>
+        </div>
+        
+        <div class="choices-area" id="choicesContainer">
+            <!-- Choices populated by JS -->
+        </div>
+    </div>
+    
+    <!-- Combat Modal -->
+    <div class="modal-overlay" id="combatModal">
+        <div class="modal-box combat-modal">
+            <h2 class="combat-title">⚔️ COMBAT ⚔️</h2>
+            <div class="combat-enemy" id="combatEnemy">👹</div>
+            <h3 id="combatEnemyName" style="text-align: center; margin-bottom: 1rem;">Enemy</h3>
+            
+            <div class="enemy-health">
+                <div class="health-info">
+                    <span>Enemy HP</span>
+                    <span id="enemyHealthText">100/100</span>
+                </div>
+                <div class="health-bar-modern">
+                    <div class="health-fill-modern" id="enemyHealthFill" style="width: 100%;"></div>
+                </div>
+            </div>
+            
+            <div class="combat-log" id="combatLog">
+                <p>Combat begins!</p>
+            </div>
+            
+            <div class="combat-actions">
+                <button class="combat-btn" onclick="combatAction('attack')">⚔️ Attack</button>
+                <button class="combat-btn" onclick="combatAction('defend')">🛡️ Defend</button>
+                <button class="combat-btn" onclick="combatAction('skill')">⚡ Skill</button>
+                <button class="combat-btn" onclick="combatAction('flee')">💨 Flee</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- End Modal -->
+    <div class="modal-overlay" id="endModal">
+        <div class="modal-box">
+            <h2>Choose Your Ending</h2>
+            <div class="ending-grid">
+                <button class="ending-btn" onclick="chooseEnding('heroic')">😇 Heroic</button>
+                <button class="ending-btn" onclick="chooseEnding('tragic')">💔 Tragic</button>
+                <button class="ending-btn" onclick="chooseEnding('mysterious')">🌙 Mysterious</button>
+                <button class="ending-btn" onclick="chooseEnding('dark')">😈 Dark</button>
+            </div>
+            <button class="secondary-btn" onclick="window.location.href='/'">Return Home</button>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p style="color: var(--text-secondary); margin-top: 1rem;">Generating story...</p>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
